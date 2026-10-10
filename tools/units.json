@@ -1,0 +1,558 @@
+{
+  "source_root": "reference",
+  "units": [
+    {
+      "name": "command_scan",
+      "source": "v1.25/source/COMMAND.ASM",
+      "namespace": "v125",
+      "output": "v1.25/command_scan.cpp",
+      "start": "SCANOFF:",
+      "end": "PAUSE:",
+      "exports": {
+        "command_scanoff": "SCANOFF",
+        "command_delim": "DELIM"
+      }
+    },
+    {
+      "name": "command_numbers",
+      "source": "v1.25/source/COMMAND.ASM",
+      "namespace": "v125",
+      "output": "v1.25/command_numbers.cpp",
+      "sections": [
+        {
+          "start": "OUTCH   EQU",
+          "end": "INBUF   EQU"
+        },
+        {
+          "start": "GETNUM:",
+          "end": "EXELOAD:"
+        }
+      ],
+      "return_labels": [
+        "RET100"
+      ],
+      "exports": {
+        "command_getnum": "GETNUM",
+        "command_indig": "INDIG",
+        "command_show": "SHOW",
+        "command_out2": "OUT2",
+        "command_out": "OUT"
+      }
+    },
+    {
+      "name": "hex2bin",
+      "source": "v1.25/source/HEX2BIN.ASM",
+      "dialect": "scp",
+      "namespace": "v125",
+      "output": "v1.25/hex2bin.cpp",
+      "data_origin": 8192,
+      "exports": {
+        "hex2bin": "HEX2BIN",
+        "hexchk": "HEXCHK"
+      },
+      "program": true
+    },
+    {
+      "name": "trans",
+      "source": "v1.25/source/TRANS.ASM",
+      "dialect": "scp",
+      "namespace": "v125",
+      "output": "v1.25/trans.cpp",
+      "data_origin": 8192,
+      "exports": {
+        "trans": "__ENTRY"
+      },
+      "legacy_call": "SYSTEM",
+      "relative_skip_jump": true,
+      "program": true
+    },
+    {
+      "name": "fat_pack",
+      "source": "v1.25/source/MSDOS.ASM",
+      "namespace": "v125",
+      "output": "v1.25/fat_pack.cpp",
+      "start": "PACK:",
+      "end": "DEVNAME:",
+      "exports": {
+        "fat_pack": "PACK"
+      }
+    },
+    {
+      "name": "fcb_records",
+      "source": "v1.25/source/MSDOS.ASM",
+      "namespace": "v125",
+      "output": "v1.25/fcb_records.cpp",
+      "structures": [
+        "FCBLOCK"
+      ],
+      "sections": [
+        {
+          "start": "GETREC:",
+          "end": "ALLOCATE:"
+        },
+        {
+          "start": "SETRNDREC:",
+          "end": "SELDSK:"
+        },
+        {
+          "start": "GETRRPOS1:",
+          "end": "NOFILERR:"
+        }
+      ],
+      "return_labels": [
+        "RET15"
+      ],
+      "exports": {
+        "getrec": "GETREC",
+        "setrndrec": "SETRNDREC",
+        "getrrpos": "GETRRPOS",
+        "getrrpos1": "GETRRPOS1"
+      }
+    },
+    {
+      "name": "setvect",
+      "source": "v1.25/source/MSDOS.ASM",
+      "namespace": "v125",
+      "output": "v1.25/setvect.cpp",
+      "start": "SETVECT:",
+      "end": "NEWBASE:",
+      "exports": {
+        "setvect": "SETVECT"
+      }
+    },
+    {
+      "name": "dsum",
+      "source": "v2.0/source/TIME.ASM",
+      "namespace": "v200",
+      "output": "v2.0/dsum.cpp",
+      "start": "procedure   DSUM,NEAR",
+      "end": "DSUM    ENDP",
+      "return_labels": [
+        "RET25"
+      ],
+      "exports": {
+        "dsum": "DSUM"
+      }
+    },
+    {
+      "name": "mapper_getver",
+      "source": "v4.0/src/MAPPER/GETVER.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/getver.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosgetversion": "DOSGETVERSION"
+      }
+    },
+    {
+      "name": "mapper_qverify",
+      "source": "v4.0/src/MAPPER/QVERIFY.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/qverify.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosqverify": "DOSQVERIFY"
+      }
+    },
+    {
+      "name": "mapper_sverify",
+      "source": "v4.0/src/MAPPER/SVERIFY.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/sverify.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dossetverify": "DOSSETVERIFY"
+      }
+    },
+    {
+      "name": "mapper_mkdir",
+      "source": "v4.0/src/MAPPER/MKDIR.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/mkdir.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosmkdir": "DOSMKDIR"
+      }
+    },
+    {
+      "name": "mapper_rmdir",
+      "source": "v4.0/src/MAPPER/RMDIR.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/rmdir.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosrmdir": "DOSRMDIR"
+      }
+    },
+    {
+      "name": "mapper_chdir",
+      "source": "v4.0/src/MAPPER/CHDIR.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/chdir.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "doschdir": "DOSCHDIR"
+      }
+    },
+    {
+      "name": "mapper_delete",
+      "source": "v4.0/src/MAPPER/DELETE.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/delete.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosdelete": "DOSDELETE"
+      }
+    },
+    {
+      "name": "mapper_close",
+      "source": "v4.0/src/MAPPER/CLOSE.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/close.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosclose": "DOSCLOSE"
+      }
+    },
+    {
+      "name": "mapper_read",
+      "source": "v4.0/src/MAPPER/READ.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/read.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosread": "DOSREAD"
+      }
+    },
+    {
+      "name": "mapper_write",
+      "source": "v4.0/src/MAPPER/WRITE.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/write.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "doswrite": "DOSWRITE"
+      }
+    },
+    {
+      "name": "mapper_lseek",
+      "source": "v4.0/src/MAPPER/LSEEK.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/lseek.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "doschgfileptr": "DOSCHGFILEPTR"
+      }
+    },
+    {
+      "name": "mapper_sel_disk",
+      "source": "v4.0/src/MAPPER/SEL_DISK.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/sel_disk.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosselectdisk": "DOSSELECTDISK"
+      }
+    },
+    {
+      "name": "mapper_qfilemod",
+      "source": "v4.0/src/MAPPER/QFILEMOD.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/qfilemod.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosqfilemode": "DOSQFILEMODE"
+      }
+    },
+    {
+      "name": "mapper_sfilemod",
+      "source": "v4.0/src/MAPPER/SFILEMOD.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/sfilemod.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dossetfilemode": "DOSSETFILEMODE"
+      }
+    },
+    {
+      "name": "mapper_qhandtyp",
+      "source": "v4.0/src/MAPPER/QHANDTYP.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/qhandtyp.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosqhandtype": "DOSQHANDTYPE"
+      }
+    },
+    {
+      "name": "mapper_freeseg",
+      "source": "v4.0/src/MAPPER/FREESEG.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/freeseg.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosfreeseg": "DOSFREESEG"
+      }
+    },
+    {
+      "name": "mapper_allocseg",
+      "source": "v4.0/src/MAPPER/ALLOCSEG.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/allocseg.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosallocseg": "DOSALLOCSEG"
+      }
+    },
+    {
+      "name": "mapper_reallseg",
+      "source": "v4.0/src/MAPPER/REALLSEG.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/reallseg.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosreallocseg": "DOSREALLOCSEG"
+      }
+    },
+    {
+      "name": "mapper_get_tod",
+      "source": "v4.0/src/MAPPER/GET_TOD.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/get_tod.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosgetdatetime": "DOSGETDATETIME"
+      }
+    },
+    {
+      "name": "mapper_set_tod",
+      "source": "v4.0/src/MAPPER/SET_TOD.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/set_tod.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dossetdatetime": "DOSSETDATETIME"
+      }
+    },
+    {
+      "name": "mapper_putmsg",
+      "source": "v4.0/src/MAPPER/PUTMSG.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/putmsg.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosputmessage": "DOSPUTMESSAGE"
+      }
+    },
+    {
+      "name": "mapper_ioctl",
+      "source": "v4.0/src/MAPPER/IOCTL.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/ioctl.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosdevioctl": "DOSDEVIOCTL"
+      }
+    },
+    {
+      "name": "mapper_exit",
+      "source": "v4.0/src/MAPPER/EXIT.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/exit.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosexit": "DOSEXIT"
+      }
+    },
+    {
+      "name": "mapper_scurpos",
+      "source": "v4.0/src/MAPPER/SCURPOS.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/scurpos.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "viosetcurpos": "VIOSETCURPOS"
+      }
+    },
+    {
+      "name": "mapper_scrollup",
+      "source": "v4.0/src/MAPPER/SCROLLUP.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/scrollup.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "vioscrollup": "VIOSCROLLUP"
+      }
+    },
+    {
+      "name": "mapper_dbcs",
+      "source": "v4.0/src/MAPPER/DBCS.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/dbcs.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosgetdbcsev": "DOSGETDBCSEV"
+      }
+    },
+    {
+      "name": "mapper_casemap",
+      "source": "v4.0/src/MAPPER/CASEMAP.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/casemap.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "doscasemap": "DOSCASEMAP"
+      }
+    },
+    {
+      "name": "mapper_devconfg",
+      "source": "v4.0/src/MAPPER/DEVCONFG.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/devconfg.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dosdevconfig": "DOSDEVCONFIG"
+      }
+    },
+    {
+      "name": "mapper_sfileinf",
+      "source": "v4.0/src/MAPPER/SFILEINF.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/sfileinf.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "dossetfileinfo": "DOSSETFILEINFO"
+      }
+    },
+    {
+      "name": "mapper_wchstra",
+      "source": "v4.0/src/MAPPER/WCHSTRA.ASM",
+      "namespace": "v400",
+      "output": "v4.0/mapper/wchstra.cpp",
+      "module": true,
+      "abi": "far",
+      "includes": [
+        "v4.0/src/MAPPER/MACROS.INC"
+      ],
+      "exports": {
+        "viowrtcharstratt": "VIOWRTCHARSTRATT"
+      }
+    }
+  ]
+}

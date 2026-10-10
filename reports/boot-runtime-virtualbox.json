@@ -1,0 +1,14 @@
+{
+  "runtime_verified": true,
+  "emulator": "VirtualBox",
+  "virtualbox_version": "7.2.20r175154",
+  "vm_name": "MS-DOS-cpp",
+  "vm_uuid": "21d843c1-b624-4cd9-ad1f-cdbe22888011",
+  "image_sha256": "670c6ae20e6e64fa2ecb1b8a992e5d445161d4efd069fd5670dd999c4148b8d7",
+  "checks_completed": 16,
+  "reason": "VirtualBox boot and all guest smoke checks passed.",
+  "scope": "modern terminal prompt, DIR, TYPE, repeated native COM execution, CALL 5, FCB writes, INT 25h, shell COPY/REN/DEL, VER/HELP/CLS/HISTORY",
+  "floppy_copy": "build/virtualbox/msdos-cpp-test.img",
+  "vm_settings": "build/virtualbox/MS-DOS-cpp/MS-DOS-cpp.vbox",
+  "screenshot": "reports/virtualbox-boot.png"
+}

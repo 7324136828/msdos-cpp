@@ -23,10 +23,6 @@
 *.dll
 *.so.*
 
-# Fortran module files
-*.mod
-*.smod
-
 # Compiled Static libraries
 *.lai
 *.la
@@ -42,6 +38,7 @@
 build/
 Build/
 build-*/
+/build*/
 
 # CMake generated files
 CMakeFiles/
@@ -56,13 +53,11 @@ compile_commands.json
 *.log
 *.bak
 *.swp
+/tests/tmp/
 
-# vcpkg
-vcpkg_installed/
+# Tools & Decompilation
+/tools/ghidra/projects/
+/decompiled/
 
-# debug information files
-*.dwo
-
-# test output & cache
-Testing/
-.cache/
+# Original project backup/reference folder
+/original-project/

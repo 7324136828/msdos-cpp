@@ -1,0 +1,55 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "msvc-x64",
+      "displayName": "MSVC x64 Release",
+      "description": "Configure for MSVC x64 Release using Ninja",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_TESTING": "ON"
+      }
+    },
+    {
+      "name": "msvc-x64-debug",
+      "displayName": "MSVC x64 Debug",
+      "description": "Configure for MSVC x64 Debug using Ninja",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_TESTING": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "msvc-x64",
+      "displayName": "MSVC x64 Release Build",
+      "configurePreset": "msvc-x64"
+    },
+    {
+      "name": "msvc-x64-debug",
+      "displayName": "MSVC x64 Debug Build",
+      "configurePreset": "msvc-x64-debug"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "msvc-x64",
+      "displayName": "MSVC x64 Tests",
+      "configurePreset": "msvc-x64",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}
+

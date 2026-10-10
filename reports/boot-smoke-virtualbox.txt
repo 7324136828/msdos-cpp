@@ -1,0 +1,93 @@
+MS-DOS-cpp  /  Your DOS workspace
+
+DOS 1.25 compatibility  /  Type HELP to get started.
+
+  Ready  Drive A: mounted. FAT12 disk writes enabled.
+  Start  HELP for commands, DIR for files, DEMO README.TXT to explore.
+
+A:\> DIR
+
+  Directory: A:\
+
+  Name                Bytes   Modified
+  ----------------  --------  ----------------
+  DEMO.COM             228  03-03-1982 00:00
+  RWTEST.COM          1240  03-03-1982 00:00
+  README.TXT            43  03-03-1982 00:00
+  COMP.COM            1649  03-03-1982 00:00
+  CHKDSK.COM          1720  03-03-1982 00:00
+  EDLIN.COM           2392  03-03-1982 00:00
+
+  6 File(s)  |  1415680 bytes free
+
+A:\> TYPE README.TXT
+A FAT12 file read by the C++ DOS kernel.
+
+
+A:\> DEMO README.TXT
+DOS .COM execution and INT 21h work.
+A FAT12 file read by the C++ DOS kernel.
+
+
+A:\> DEMO README.TXT
+DOS .COM execution and INT 21h work.
+A FAT12 file read by the C++ DOS kernel.
+
+
+A:\> RWTEST
+CALL 5 dispatch works.
+FCB create/write/read/truncate/rename/delete passed.
+Absolute sector read and flags-stack cleanup passed.
+
+
+A:\> COPY README.TXT COPY.TXT
+1 File(s) copied
+
+A:\> TYPE COPY.TXT
+A FAT12 file read by the C++ DOS kernel.
+
+
+A:\> REN COPY.TXT RENAMED.TXT
+
+A:\> TYPE RENAMED.TXT
+A FAT12 file read by the C++ DOS kernel.
+
+
+A:\> DEL RENAMED.TXT
+
+A:\> TYPE RENAMED.TXT
+File not found
+
+
+A:\> VER
+MS-DOS cpp  DOS 1.25 compatibility
+
+A:\> HELP
+Commands
+  DIR [/W] [/P] [pattern]  List files      TYPE file   Read a file
+  COPY source destination                REN old new   Rename
+  DEL / ERASE file                       REM           Comment
+  DATE [YYYY-MM-DD]   TIME [HH:MM:SS]     VERIFY [ON|OFF]
+  CLS / CLEAR        Clear screen        HISTORY       Recent commands
+  VER                DOS version         PAUSE         Wait for a key
+
+Keyboard
+  Up/Down history   Tab completion   Left/Right, Home/End, Delete
+  F1 help   Ctrl+L clear screen   Esc / Ctrl+U / Ctrl+C clear input
+
+Try it
+  DEMO README.TXT   Run a COM program. BAT files accept %0-%9.
+
+A:\> CLS
+
+A:\> HISTORY
+  1  REN COPY.TXT RENAMED.TXT
+  2  TYPE RENAMED.TXT
+  3  DEL RENAMED.TXT
+  4  TYPE RENAMED.TXT
+  5  VER
+  6  HELP
+  7  CLS
+  8  HISTORY
+
+A:\>
